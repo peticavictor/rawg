@@ -1,0 +1,26 @@
+nav {
+    background-color: #151515;
+}
+a {
+    text-decoration: none;
+    letter-spacing: 4px;
+    font-weight: 900;
+    font-size: 24px;
+}
+input {
+    outline: none;
+    border-radius: 20px !important;
+    transition: 0.5s ;
+    border: none;
+    &:hover, &:focus {
+        opacity: 100% !important;
+        transition: 0.5s;
+    }
+}
+#inputDiv{
+    transition: 0.5s;
+}
+#inputDiv:focus-within, :hover {
+    opacity: 100% !important;
+    transition: 0.5s;
+}

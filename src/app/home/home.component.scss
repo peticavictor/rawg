@@ -1,0 +1,41 @@
+mat-sidenav-container {
+    height: 200vh;
+    width: 300px;
+    h3 {
+        font-weight: 900;
+    }
+    a {
+        text-decoration: none;
+    }
+}
+button {
+    transition: 0.5s;
+    width: 50px;
+    font-size: 18px;
+}
+.action-image {
+    width: 50px;
+    height: 40px;
+    opacity: 60%;
+    transition: 0.5s;
+}
+.platform:hover > button {
+    transition: 0.5s;
+    background-color: white !important;
+    color: #454545 !important;
+}
+.genre:hover > .action-image {
+    opacity: 100%;
+    transition: 0.5s;
+}
+.genre:hover {
+    cursor:pointer;
+}
+.angleDown {
+    width: 50px;
+    height: 40px;
+    font-size: 24px;
+    background-color: #313131;
+    text-align: center;
+    cursor: pointer;
+}

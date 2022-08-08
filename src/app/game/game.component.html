@@ -1,0 +1,45 @@
+<div class="d-flex flex-column "  >
+    <div (mouseenter)="changeScreenshoot(game.short_screenshots.length)" (mouseleave)="refreshScreenshoot()">
+        <div class="game rounded-top" 
+        style="background-image: url('{{game.short_screenshots[imageIndex].image}}'); transition: 0.5s">
+        </div>
+    </div>
+    <div class="title container text-light wrap rounded-bottom">
+        <h5 class="pt-2">{{game.name}}</h5>
+        <div class="d-flex flex-row" >
+            <div *ngFor='let platform of game.parent_platforms'>
+                <div [ngSwitch]="platform.platform.name">
+                    <div *ngSwitchCase="'PC'" >
+                        <fa-icon class="ms-1" [icon]="windowsIcon"></fa-icon>
+                    </div>
+                    <div *ngSwitchCase="'PlayStation'" >
+                        <fa-icon class="ms-1" [icon]="playStationIcon"></fa-icon>
+                    </div>
+                    <div *ngSwitchCase="'Xbox'" >
+                        <fa-icon class="ms-1" [icon]="xBoxIcon"></fa-icon>
+                    </div>
+                    <div *ngSwitchCase="'Apple Macintosh'" >
+                        <fa-icon class="ms-1" [icon]="appleIcon"></fa-icon>
+                    </div>
+                    <div *ngSwitchCase="'Linux'" >
+                        <fa-icon class="ms-1" [icon]="linuxIcon"></fa-icon>
+                    </div>
+                    <div *ngSwitchCase="'iOS'" >
+                        <fa-icon class="ms-1" [icon]="iOSIcon"></fa-icon>
+                    </div>
+                    <div *ngSwitchCase="'Android'" >
+                        <fa-icon class="ms-1" [icon]="androidIcon"></fa-icon>
+                    </div>
+                    <div *ngSwitchCase="'Nintendo'" >
+                        <fa-icon class="ms-1" [icon]="nintendoIcon"></fa-icon>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="btn btn-outline-light btn-sm py-0">+{{game.ratings_count}}</button>
+        <hr class="mt-4">
+        <h6 class=" ">Release date: <span>{{game.released}}</span></h6>
+        <hr class="">
+        <h6 class="">Genres: <span *ngFor="let genre of game.genres; let i = index;">{{genre.name}}{{i === game.genres.length - 1 ? "" : ", " }}</span></h6>
+    </div>
+</div>

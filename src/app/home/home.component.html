@@ -1,0 +1,28 @@
+<div class="d-flex">
+    <mat-sidenav-container class="bg-none text-light m-2 p-5 rounded">
+        <mat-sidenav opened >
+            <a routerLink="/" class="text-light" onclick="window.location.reload()"><h3>All Games</h3></a>
+            <hr>
+            <h3>Platforms</h3>
+            <div class="platform d-flex align-items-center m-1 " *ngFor="let platform of response.parentPlatforms">
+                <button class="btn btn-outline-light ">
+                    <fa-icon [icon]="platform.icon"></fa-icon>
+                </button>
+                <a class="text-light ms-2" routerLink="/" (click)="response.onPlatformSearch(platform.id)"><h5>{{platform.name}}</h5></a>
+            </div>
+            <hr>
+            <h3>Genres</h3>
+            <div *ngFor="let genre of response.allGenres.results; let i = index;" >
+                <div class="genre d-flex align-items-center m-1" *ngIf="i < 3 || showAllGenres">
+                    <div class="action-image rounded" style="background-image: url('{{genre.image_background}}'); background-size: cover;"></div>
+                    <a class="text-light ms-2" routerLink="/" (click)="response.onGenreSearch(genre.id)"><h5>{{genre.name}}</h5></a>
+                </div>
+            </div>
+            <div class="d-flex text-light">
+                <fa-icon [icon]="angleDownIcon" class="angleDown ms-1 rounded "></fa-icon>
+                <a class="text-light m-2" routerLink="/" (click)="showElements()"><h5>{{showAllGenres ? 'Hide' : 'Show all'}}</h5></a>
+            </div>
+        </mat-sidenav>
+    </mat-sidenav-container>
+    <app-games class="w-100"></app-games>
+</div>
